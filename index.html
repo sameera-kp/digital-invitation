@@ -69,7 +69,7 @@ h3 {
     font-family: "Great Vibes", cursive;
 }
 /* =========================================================
-   OPENING SCREEN (MOBILE RESPONSIVE UPDATED)
+   OPENING SCREEN (RESPONSIVE & THEME MATCHED)
 ========================================================= */
 
 #opening-screen {
@@ -77,7 +77,7 @@ h3 {
     inset: 0;
     width: 100%;
     height: 100svh; /* മൊബൈൽ ബ്രൗസർ ബാറുകൾ ഒഴിവാക്കാൻ */
-    background: #000;
+    background: #eef2f7; /* കറുപ്പിന് പകരം നിങ്ങളുടെ തീമിന് ഇണങ്ങുന്ന സോഫ്റ്റ് ലൈറ്റ് ബ്ലൂ/ഐവറി കളർ */
     z-index: 100000;
     display: flex;
     align-items: center;
@@ -86,7 +86,6 @@ h3 {
 
     opacity: 1;
     visibility: visible;
-
     transition: opacity 1.2s ease, visibility 1.2s ease;
 }
 
@@ -96,32 +95,35 @@ h3 {
     pointer-events: none;
 }
 
-/* Opening Video */
-.opening-video {
+/* കവർ ഇമേജും ആനിമേഷൻ വീഡിയോയും സ്ക്രീനിൽ പൂർണ്ണമായി ഫിറ്റ് ചെയ്യാൻ */
+.cover-media {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* സ്ക്രീൻ മുഴുവൻ ഫിറ്റ് ചെയ്യാൻ */
+    object-fit: contain; /* ഇമേജ് മുറിഞ്ഞുപോകാതെ മുഴുവനായി കാണിക്കാൻ */
+    background-color: #eef2f7; /* ചുറ്റും വരുന്ന ഭാഗം തീം കളർ ആക്കാൻ */
     display: block;
 }
 
-/* Dark overlay */
+/* വീഡിയോ ടാപ്പ് ചെയ്യുന്നതുവരെ ഹൈഡ് ചെയ്തു വെക്കാൻ */
+.hidden-video {
+    display: none !important;
+}
+
+/* Dark overlay ഒഴിവാക്കി വളരെ സോഫ്റ്റ് ആയ ഗ്ലാസ് ഇഫക്റ്റ് */
 .opening-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.5)
-    );
+    background: rgba(255, 255, 255, 0.05);
     z-index: 2;
+    pointer-events: none; /* ക്ലിക്ക് തടസ്സപ്പെടാതിരിക്കാൻ */
 }
 
 /* Opening Content */
 .opening-content {
     position: relative;
-    z-index: 3;
+    z-index: 999; /* ബട്ടൺ ഏറ്റവും മുകളിൽ കിട്ടാൻ */
     width: 100%;
     height: 100%;
     display: flex;
@@ -129,63 +131,62 @@ h3 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: #444; /* ഡാർക്ക് തീം ടെക്സ്റ്റിന് പകരം സോഫ്റ്റ് കളർ */
     padding: 20px;
+    transition: opacity 0.4s ease;
 }
 
 .opening-small {
     font-family: "Montserrat", sans-serif;
     font-size: 8px;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 12px;
-    opacity: 0.9;
+    margin-bottom: 8px;
+    opacity: 0.8;
 }
 
 .opening-names {
     font-family: "Great Vibes", cursive;
-    font-size: clamp(40px, 12vw, 85px); /* മൊബൈലിൽ സൈസ് അനുസരിച്ച് ഓട്ടോമാറ്റിക് കുറയും */
+    font-size: clamp(40px, 12vw, 85px);
     line-height: 1.1;
     margin-bottom: 30px;
     text-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
     padding: 0 10px;
 }
 
-/* TAP TO OPEN */
+/* =========================================================
+   വളരെ ചെറുതും സിമ്പിളുമായ 'TAP TO OPEN' ബട്ടൺ
+   (ലെറ്ററിലെ സീലിന് തൊട്ടുതാഴെ വരുന്ന രീതിയിൽ margin-top നൽകിയിരിക്കുന്നു)
+========================================================= */
 .tap-open {
     appearance: none;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    padding: 12px 28px;
-    border-radius: 50px;
+    border: 1px solid rgba(80, 90, 110, 0.3);
+    background: rgba(255, 255, 255, 0.85); /* സോഫ്റ്റ് വൈറ്റ് ഗ്ലാസ് ബാക്ക്ഗ്രൗണ്ട് */
+    color: #333333;
+    padding: 6px 18px; /* വലുപ്പം കുറച്ച് ചെറുതാക്കി */
+    border-radius: 20px;
     font-family: "Montserrat", sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    font-weight: 500;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
     cursor: pointer;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    animation: tapPulse 2s ease-in-out infinite;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: 0.3s ease;
+    
+    /* ലെറ്ററിന്റെ സീലിന് താഴെയായി കറക്റ്റ് പൊസിഷൻ ചെയ്യാൻ */
+    margin-top: 130px; 
 }
 
 .tap-open:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 .tap-open:active {
     transform: scale(0.96);
-}
-
-@keyframes tapPulse {
-    0%, 100% {
-        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-    }
 }
 
 /* Opening bottom text */
@@ -196,22 +197,19 @@ h3 {
     font-size: 7px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.7;
+    opacity: 0.6;
+    color: #555;
 }
 
-/* ചെറിയ മൊബൈൽ സ്ക്രീനുകൾക്കായി (Small Mobile Screens) കൂടുതൽ റെസ്പോൺസീവ് ആക്കാൻ */
+/* ചെറിയ മൊബൈൽ സ്ക്രീനുകൾക്കായി */
 @media (max-width: 480px) {
     .opening-content {
         padding: 15px;
     }
-    .opening-small {
-        letter-spacing: 3px;
-        font-size: 7px;
-    }
     .tap-open {
-        padding: 10px 24px;
-        font-size: 9px;
-        letter-spacing: 2px;
+        padding: 5px 16px;
+        font-size: 8px;
+        margin-top: 110px; /* സ്ക്രീൻ അനുസരിച്ച് ബട്ടൺ മുകളിലേക്കോ താഴേക്കോ മാറ്റാൻ ഇത് അഡ്ജസ്റ്റ് ചെയ്യാം */
     }
     .opening-hint {
         bottom: 20px;
@@ -2014,48 +2012,39 @@ h3 {
 
 
 <body class="locked">
-
-
 <!-- ======================================================
-     OPENING SCREEN
+     OPENING SCREEN (IMAGE COVER TO ANIMATION VIDEO)
 ======================================================= -->
-
 <div id="opening-screen">
+
+    <img 
+        id="coverImage"
+        class="cover-media"
+        src="wedding-inv1.jpg"
+        alt="Wedding Invitation Cover"
+    >
 
     <video
         id="openingVideo"
-        class="opening-video"
-        autoplay
+        class="cover-media hidden-video"
         muted
-        loop
         playsinline
         preload="auto"
     >
-
         <source
-            src="wedding-inv4.mp4"
+            src="inv-video3.MP4"
             type="video/mp4"
         >
-
         Your browser does not support the video tag.
-
     </video>
 
+    <div class="opening-overlay" style="pointer-events: none;"></div>
 
-    <div class="opening-overlay"></div>
-
-
-    <div class="opening-content">
+    <div id="openingContent" class="opening-content">
 
         <div class="opening-small">
             You Are Invited
         </div>
-
-
-        <div class="opening-names">
-            Fathima & Rashid
-        </div>
-
 
         <button
             id="tapOpenBtn"
@@ -2065,7 +2054,6 @@ h3 {
             TAP TO OPEN
         </button>
 
-
         <div class="opening-hint">
             A Beautiful Beginning Awaits
         </div>
@@ -2073,9 +2061,6 @@ h3 {
     </div>
 
 </div>
-
-
-
 <!-- ======================================================
      BACKGROUND MUSIC
 ======================================================= -->
@@ -2937,7 +2922,7 @@ h3 {
 
 
         <a
-            href="https://www.instagram.com/yourdaywithus/"
+            href="https://www.instagram.com/yourday6881?stkn=NDk0bmR1cGM2MGMx&utm_source=qr"
             target="_blank"
             class="instagram-link"
         >
@@ -2981,7 +2966,7 @@ h3 {
 
 
             <span>
-                @yourdaywithus
+                @yourday6881
             </span>
 
 
@@ -3003,124 +2988,78 @@ h3 {
 
 
 /* =========================================================
-   ELEMENTS
-========================================================= */
-
-const bgMusic =
-    document.getElementById("bg-music");
-
-const musicToggleBtn =
-    document.getElementById("musicToggleBtn");
-
-const openingScreen =
-    document.getElementById("opening-screen");
-
-const tapOpenBtn =
-    document.getElementById("tapOpenBtn");
-
-const openingVideo =
-    document.getElementById("openingVideo");
-
-
-/* =========================================================
    OPENING SCREEN
 ========================================================= */
 
-tapOpenBtn.addEventListener(
-    "click",
-    async function () {
+const bgMusic = document.getElementById("bg-music");
+const musicToggleBtn = document.getElementById("music-toggle");
+const openingScreen = document.getElementById("opening-screen");
+const tapOpenBtn = document.getElementById('tapOpenBtn');
+const coverImg = document.getElementById('coverImage');
+const openingVideo = document.getElementById('openingVideo');
+const openingContentBox = document.getElementById('openingContent');
 
+if (tapOpenBtn) {
+    tapOpenBtn.addEventListener(
+        "click",
+        async function () {
 
-        /*
-         * User interaction has happened.
-         * Therefore browser allows audio playback.
-         */
-
-        if (bgMusic) {
-
-            try {
-
-                await bgMusic.play();
-
-                musicToggleBtn.classList.add(
-                    "playing"
-                );
-
+            /* മ്യൂസിക് പ്ലേ ചെയ്യാൻ ശ്രമിക്കുക */
+            if (bgMusic) {
+                try {
+                    await bgMusic.play();
+                    if (musicToggleBtn) {
+                        musicToggleBtn.classList.add("playing");
+                    }
+                } catch (error) {
+                    console.log("Music play blocked:", error);
+                }
             }
 
-            catch (error) {
-
-                console.log(
-                    "Music play blocked:",
-                    error
-                );
-
+            /* ഇമേജ് ഹൈഡ് ചെയ്ത് ആനിമേഷൻ വീഡിയോ പ്ലേ ചെയ്യുക */
+            if (coverImg) {
+                coverImg.style.display = 'none';
             }
 
+            if (openingContentBox) {
+                openingContentBox.style.opacity = '0';
+                openingContentBox.style.pointerEvents = 'none';
+                openingContentBox.style.transition = 'opacity 0.4s ease';
+            }
+
+            if (openingVideo) {
+                try {
+                    openingVideo.classList.remove('hidden-video');
+                    await openingVideo.play();
+                } catch (error) {
+                    console.log("Opening video error:", error);
+                }
+            }
+
+            /* വീഡിയോ അവസാനിച്ചു കഴിയുമ്പോൾ സ്ക്രീൻ മാറ്റുക */
+            if (openingVideo) {
+                openingVideo.onended = function() {
+                    openingScreen.classList.add("opened");
+                    document.body.classList.remove("locked");
+                    
+                    setTimeout(function () {
+                        openingScreen.remove();
+                    }, 1300);
+                };
+            }
+
+            /* ഫോൾബാക്ക് ടൈമർ (5.5 സെക്കൻഡ്) */
+            setTimeout(function () {
+                openingScreen.classList.add("opened");
+                document.body.classList.remove("locked");
+                
+                setTimeout(function () {
+                    openingScreen.remove();
+                }, 1300);
+            }, 5500); 
         }
-
-
-        /*
-         * Make sure opening video is playing.
-         */
-
-        if (openingVideo) {
-
-            try {
-
-                await openingVideo.play();
-
-            }
-
-            catch (error) {
-
-                console.log(
-                    "Opening video error:",
-                    error
-                );
-
-            }
-
-        }
-
-
-        /*
-         * Fade opening screen out.
-         */
-
-        openingScreen.classList.add(
-            "opened"
-        );
-
-
-        /*
-         * Enable website scrolling.
-         */
-
-        document.body.classList.remove(
-            "locked"
-        );
-
-
-        /*
-         * Remove opening screen completely
-         * after fade animation.
-         */
-
-        setTimeout(
-            function () {
-
-                openingScreen.remove();
-
-            },
-            1300
-        );
-
-
-    }
-);
-
-
+    );
+}
 /* =========================================================
    MUSIC CONTROL
 ========================================================= */

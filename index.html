@@ -76,8 +76,8 @@ h3 {
     position: fixed;
     inset: 0;
     width: 100%;
-    height: 100svh; /* മൊബൈൽ ബ്രൗസർ ബാറുകൾ ഒഴിവാക്കാൻ */
-    background: #eef2f7; /* കറുപ്പിന് പകരം നിങ്ങളുടെ തീമിന് ഇണങ്ങുന്ന സോഫ്റ്റ് ലൈറ്റ് ബ്ലൂ/ഐവറി കളർ */
+    height: 100svh;
+    background: #eef2f7;
     z-index: 100000;
     display: flex;
     align-items: center;
@@ -95,35 +95,32 @@ h3 {
     pointer-events: none;
 }
 
-/* കവർ ഇമേജും ആനിമേഷൻ വീഡിയോയും സ്ക്രീനിൽ പൂർണ്ണമായി ഫിറ്റ് ചെയ്യാൻ */
 .cover-media {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* ഇമേജ് മുറിഞ്ഞുപോകാതെ മുഴുവനായി കാണിക്കാൻ */
-    background-color: #eef2f7; /* ചുറ്റും വരുന്ന ഭാഗം തീം കളർ ആക്കാൻ */
+    object-fit: contain;
+    background-color: #eef2f7;
     display: block;
 }
 
-/* വീഡിയോ ടാപ്പ് ചെയ്യുന്നതുവരെ ഹൈഡ് ചെയ്തു വെക്കാൻ */
 .hidden-video {
     display: none !important;
 }
 
-/* Dark overlay ഒഴിവാക്കി വളരെ സോഫ്റ്റ് ആയ ഗ്ലാസ് ഇഫക്റ്റ് */
 .opening-overlay {
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.05);
     z-index: 2;
-    pointer-events: none; /* ക്ലിക്ക് തടസ്സപ്പെടാതിരിക്കാൻ */
+    pointer-events: none; 
 }
 
 /* Opening Content */
 .opening-content {
     position: relative;
-    z-index: 999; /* ബട്ടൺ ഏറ്റവും മുകളിൽ കിട്ടാൻ */
+    z-index: 999; 
     width: 100%;
     height: 100%;
     display: flex;
@@ -131,7 +128,7 @@ h3 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #444; /* ഡാർക്ക് തീം ടെക്സ്റ്റിന് പകരം സോഫ്റ്റ് കളർ */
+    color: #444; 
     padding: 20px;
     transition: opacity 0.4s ease;
 }
@@ -154,16 +151,12 @@ h3 {
     padding: 0 10px;
 }
 
-/* =========================================================
-   വളരെ ചെറുതും സിമ്പിളുമായ 'TAP TO OPEN' ബട്ടൺ
-   (ലെറ്ററിലെ സീലിന് തൊട്ടുതാഴെ വരുന്ന രീതിയിൽ margin-top നൽകിയിരിക്കുന്നു)
-========================================================= */
 .tap-open {
     appearance: none;
     border: 1px solid rgba(80, 90, 110, 0.3);
-    background: rgba(255, 255, 255, 0.85); /* സോഫ്റ്റ് വൈറ്റ് ഗ്ലാസ് ബാക്ക്ഗ്രൗണ്ട് */
+    background: rgba(255, 255, 255, 0.85); 
     color: #333333;
-    padding: 6px 18px; /* വലുപ്പം കുറച്ച് ചെറുതാക്കി */
+    padding: 6px 18px; 
     border-radius: 20px;
     font-family: "Montserrat", sans-serif;
     font-size: 9px;
@@ -174,8 +167,6 @@ h3 {
     -webkit-backdrop-filter: blur(4px);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: 0.3s ease;
-    
-    /* ലെറ്ററിന്റെ സീലിന് താഴെയായി കറക്റ്റ് പൊസിഷൻ ചെയ്യാൻ */
     margin-top: 130px; 
 }
 
@@ -200,8 +191,6 @@ h3 {
     opacity: 0.6;
     color: #555;
 }
-
-/* ചെറിയ മൊബൈൽ സ്ക്രീനുകൾക്കായി */
 @media (max-width: 480px) {
     .opening-content {
         padding: 15px;
@@ -209,7 +198,7 @@ h3 {
     .tap-open {
         padding: 5px 16px;
         font-size: 8px;
-        margin-top: 110px; /* സ്ക്രീൻ അനുസരിച്ച് ബട്ടൺ മുകളിലേക്കോ താഴേക്കോ മാറ്റാൻ ഇത് അഡ്ജസ്റ്റ് ചെയ്യാം */
+        margin-top: 110px; 
     }
     .opening-hint {
         bottom: 20px;
@@ -570,31 +559,40 @@ h3 {
     text-transform: uppercase;
 }
 
-/* =========================================================
-   കവർ വീഡിയോ പെർഫെക്റ്റ് റെസ്പോൺസീവ് (Zoom ആവാതെ ഫുൾ ആയി കാണാൻ)
-========================================================= */
+
 .cover-video-container {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100svh;
-    margin: 0;
-    z-index: 2;
-    border-radius: 0;
+
+    position: relative;
+
+    width:
+        min(90%, 380px);
+
+    aspect-ratio: 9/16;
+
+    margin: auto;
+
+    z-index: 1;
+
+    border-radius: 20px;
+
     overflow: hidden;
-    background: #eef2f7; /* നിങ്ങളുടെ തീമിന് ഇണങ്ങുന്ന ബാക്ക്ഗ്രൗണ്ട് കളർ */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.25);
 }
 
+
 .cover-video {
+
     width: 100%;
     height: 100%;
-    object-fit: contain; /* സൂം ആയി കട്ടായി പോകാതെ വീഡിയോ മുഴുവനായി സ്ക്രീനിൽ ഫിറ്റ് ചെയ്യാൻ */
+
+    object-fit: cover;
+
     display: block;
 }
+
+
 /* =========================================================
    STARS
 ========================================================= */
@@ -1960,7 +1958,6 @@ h3 {
 
 }
 
-
 /* =========================================================
    VERY SMALL MOBILE
 ========================================================= */
@@ -2085,8 +2082,6 @@ h3 {
 
 </div>
 
-
-
 <!-- ======================================================
      01 — COVER SECTION
 ======================================================= -->
@@ -2157,8 +2152,6 @@ h3 {
 
 </section>
 
-
-
 <!-- ======================================================
      02 — INVITATION
 ======================================================= -->
@@ -2198,8 +2191,6 @@ h3 {
 
 </section>
 
-
-
 <!-- ======================================================
      03 — OUR STORY
 ======================================================= -->
@@ -2207,7 +2198,6 @@ h3 {
 <section id="story">
 
     <div class="section-inner">
-
 
         <div class="story-title reveal">
 
@@ -2224,7 +2214,6 @@ h3 {
             </p>
 
         </div>
-
 
         <div class="timeline">
 
@@ -2248,7 +2237,6 @@ h3 {
 
             </div>
 
-
             <div class="timeline-item reveal">
 
                 <div class="moon-phase"></div>
@@ -2267,7 +2255,6 @@ h3 {
                 </div>
 
             </div>
-
 
             <div class="timeline-item reveal">
 
@@ -2288,7 +2275,6 @@ h3 {
 
             </div>
 
-
             <div class="timeline-item reveal">
 
                 <div class="moon-phase"></div>
@@ -2308,14 +2294,10 @@ h3 {
 
             </div>
 
-
         </div>
-
     </div>
 
 </section>
-
-
 
 <!-- ======================================================
      04 — WEDDING CEREMONY
@@ -2325,22 +2307,17 @@ h3 {
 
     <div class="pearl-card reveal">
 
-
         <p class="section-subtitle">
             In Sha Allah
         </p>
-
 
         <h2 class="section-title">
             The Wedding
         </h2>
 
-
         <div class="gold-line"></div>
 
-
         <div class="details">
-
 
             <div class="detail">
 
@@ -2354,7 +2331,6 @@ h3 {
 
             </div>
 
-
             <div class="detail">
 
                 <span class="detail-label">
@@ -2366,7 +2342,6 @@ h3 {
                 </div>
 
             </div>
-
 
             <div class="detail">
 
@@ -2383,13 +2358,9 @@ h3 {
                     Dubai, UAE
 
                 </div>
-
             </div>
 
-
         </div>
-
-
 
         <!-- COUNTDOWN -->
 
@@ -2411,7 +2382,6 @@ h3 {
 
             </div>
 
-
             <div class="countdown-box">
 
                 <span
@@ -2426,7 +2396,6 @@ h3 {
                 </span>
 
             </div>
-
 
             <div class="countdown-box">
 
@@ -2443,7 +2412,6 @@ h3 {
 
             </div>
 
-
             <div class="countdown-box">
 
                 <span
@@ -2459,9 +2427,7 @@ h3 {
 
             </div>
 
-
         </div>
-
 
         <a
             href="#venue"
@@ -2470,12 +2436,9 @@ h3 {
             VIEW LOCATION
         </a>
 
-
     </div>
 
 </section>
-
-
 
 <!-- ======================================================
      05 — EVENTS
@@ -2498,9 +2461,7 @@ h3 {
 
         </div>
 
-
         <div class="events-grid">
-
 
             <div class="event-card reveal">
 
@@ -2539,7 +2500,6 @@ h3 {
 
             </div>
 
-
             <div class="event-card reveal">
 
                 <div class="event-icon">
@@ -2557,7 +2517,6 @@ h3 {
                 </p>
 
             </div>
-
 
             <div class="event-card reveal">
 
@@ -2577,14 +2536,11 @@ h3 {
 
             </div>
 
-
         </div>
 
     </div>
 
 </section>
-
-
 
 <!-- ======================================================
      06 — COUPLE PHOTOS
@@ -2609,8 +2565,6 @@ h3 {
 
 </section>
 
-
-
 <!-- ======================================================
      07 — DRESS CODE
 ======================================================= -->
@@ -2619,16 +2573,13 @@ h3 {
 
     <div class="cloud-panel reveal">
 
-
         <p class="section-subtitle">
             Dress Code
         </p>
 
-
         <h2 class="section-title">
             Elegant
         </h2>
-
 
         <p>
             Traditional • Modest • Timeless
@@ -2636,7 +2587,6 @@ h3 {
 
 
         <div class="color-palette">
-
 
             <div class="color-item">
 
@@ -2648,7 +2598,6 @@ h3 {
 
             </div>
 
-
             <div class="color-item">
 
                 <div class="color-circle powder"></div>
@@ -2658,7 +2607,6 @@ h3 {
                 </span>
 
             </div>
-
 
             <div class="color-item">
 
@@ -2670,9 +2618,7 @@ h3 {
 
             </div>
 
-
         </div>
-
 
         <p
             style="
@@ -2684,17 +2630,12 @@ h3 {
             Dress like you're
 
             <br>
-
             walking through a dream.
-
         </p>
-
 
     </div>
 
 </section>
-
-
 
 <!-- ======================================================
      08 — VENUE
@@ -2704,19 +2645,15 @@ h3 {
 
     <div class="map-box reveal">
 
-
         <p class="section-subtitle">
             Join Us Here
         </p>
-
 
         <h2 class="section-title">
             The Venue
         </h2>
 
-
         <div class="gold-line"></div>
-
 
         <h3
             style="
@@ -2725,7 +2662,6 @@ h3 {
         >
             Al Noor Islamic Centre
         </h3>
-
 
         <p>
 
@@ -2737,13 +2673,10 @@ h3 {
 
         </p>
 
-
         <div class="map">
-
             <div class="map-pin"></div>
 
         </div>
-
 
         <a
             href="https://maps.google.com"
@@ -2753,12 +2686,9 @@ h3 {
             GET DIRECTIONS →
         </a>
 
-
     </div>
 
 </section>
-
-
 
 <!-- ======================================================
      09 — RSVP
@@ -2768,29 +2698,18 @@ h3 {
 
     <div class="rsvp-card reveal">
 
-
         <p class="section-subtitle">
             Kindly Respond
         </p>
 
-
         <h2>
-
             We Would Love
-
             <br>
-
             To Celebrate
-
             <br>
-
             With You
-
         </h2>
-
-
         <p>
-
             Kindly RSVP by
 
             <br>
@@ -2798,13 +2717,8 @@ h3 {
             <strong>
                 15 October 2026
             </strong>
-
         </p>
-
-
         <div class="rsvp-buttons">
-
-
             <a
                 href="https://wa.me/919656005815?text=Hello!%20I%20would%20love%20to%20celebrate%20with%20you.%20Yes,%20I'll%20be%20there!%20🎉"
                 target="_blank"
@@ -2812,62 +2726,35 @@ h3 {
             >
                 YES, I'LL BE THERE
             </a>
-
-
             <a
                 href="https://wa.me/919656005815?text=Hello!%20Thank%20you%20for%20the%20invitation.%20Sorry,%20I%20can't%20make%20it.%20💔"
                 target="_blank"
                 class="rsvp-btn rsvp-no"
             >
                 SORRY, CAN'T MAKE IT
-            </a>
-
-
+                        </a>
         </div>
-
     </div>
 
 </section>
-
-
-
 <!-- ======================================================
      10 — FINAL
 ======================================================= -->
-
 <section id="final">
-
-
     <div class="final-wrapper">
-
-
         <div class="final-moon"></div>
-
-
         <div class="final-content reveal">
-
-
             <div class="arabic">
                 بِسْمِ اللَّهِ
             </div>
-
-
             <div class="initials">
                 F ♡ R
             </div>
-
-
             <div class="final-quote">
-
                 Under the same sky,
-
                 <br>
-
                 our forever begins.
-
             </div>
-
-
             <div
                 class="gold-line"
                 style="
@@ -2895,8 +2782,6 @@ h3 {
 
 </section>
 
-
-
 <!-- ======================================================
      FOOTER
 ======================================================= -->
@@ -2913,7 +2798,7 @@ h3 {
 
 
         <a
-            href="https://www.instagram.com/yourday6881?stkn=NDk0bmR1cGM2MGMx&utm_source=qr"
+            href="https://www.instagram.com/yourdaywithus/"
             target="_blank"
             class="instagram-link"
         >
@@ -2955,29 +2840,19 @@ h3 {
 
             </svg>
 
-
             <span>
-                @yourday6881
+                @yourdaywithus
             </span>
-
-
         </a>
-
-
     </div>
 
-
 </footer>
-
-
 
 <!-- ======================================================
      JAVASCRIPT
 ======================================================= -->
 
 <script>
-
-
 /* =========================================================
    OPENING SCREEN
 ========================================================= */
@@ -2994,8 +2869,6 @@ if (tapOpenBtn) {
     tapOpenBtn.addEventListener(
         "click",
         async function () {
-
-            /* മ്യൂസിക് പ്ലേ ചെയ്യാൻ ശ്രമിക്കുക */
             if (bgMusic) {
                 try {
                     await bgMusic.play();
@@ -3006,8 +2879,6 @@ if (tapOpenBtn) {
                     console.log("Music play blocked:", error);
                 }
             }
-
-            /* ഇമേജ് ഹൈഡ് ചെയ്ത് ആനിമേഷൻ വീഡിയോ പ്ലേ ചെയ്യുക */
             if (coverImg) {
                 coverImg.style.display = 'none';
             }
@@ -3026,8 +2897,6 @@ if (tapOpenBtn) {
                     console.log("Opening video error:", error);
                 }
             }
-
-            /* വീഡിയോ അവസാനിച്ചു കഴിയുമ്പോൾ സ്ക്രീൻ മാറ്റുക */
             if (openingVideo) {
                 openingVideo.onended = function() {
                     openingScreen.classList.add("opened");
@@ -3038,8 +2907,6 @@ if (tapOpenBtn) {
                     }, 1300);
                 };
             }
-
-            /* ഫോൾബാക്ക് ടൈമർ (5.5 സെക്കൻഡ്) */
             setTimeout(function () {
                 openingScreen.classList.add("opened");
                 document.body.classList.remove("locked");

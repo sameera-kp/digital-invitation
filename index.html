@@ -404,117 +404,23 @@ h3 {
 ========================================================= */
 
 #cover {
-
-    min-height: 100svh;
-
-    background:
-        linear-gradient(
-            180deg,
-            #a9c4d6 0%,
-            #c9dbe5 45%,
-            #eef2f1 100%
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-
-    position: relative;
-
-    overflow: hidden;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important; /* മൊബൈൽ ബ്രൗസർ ബാറുകൾ കറക്റ്റ് ആയി ഫിറ്റ് ചെയ്യാൻ */
+    background: #eef2f1 !important; /* ബാക്ക്ഗ്രൗണ്ട് തീം കളർ */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
 }
-
-
-.moon-container {
-
-    position: relative;
-
-    width:
-        min(75vw, 420px);
-
-    aspect-ratio: 1;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.moon {
-
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff 0%,
-            #edf2f2 38%,
-            #d3dce0 68%,
-            #aebfc8 100%
-        );
-
-    box-shadow:
-        0 0 35px rgba(255,255,255,.9),
-        0 0 100px rgba(255,255,255,.65),
-        0 0 180px rgba(255,255,255,.3);
-
-    animation:
-        moonGlow 4s ease-in-out infinite;
-}
-
-
-@keyframes moonGlow {
-
-    0%,
-    100% {
-
-        box-shadow:
-            0 0 35px rgba(255,255,255,.8),
-            0 0 90px rgba(255,255,255,.4);
-    }
-
-    50% {
-
-        box-shadow:
-            0 0 55px rgba(255,255,255,1),
-            0 0 130px rgba(255,255,255,.7);
-    }
-
-}
-
 
 .cover-content {
-
-    position: relative;
-
-    z-index: 10;
-
-    text-align: center;
-
-    padding: 20px;
+    display: none !important; /* ഓവർലാപ്പ് ആയി വരുന്ന പഴയ ടെക്സ്റ്റുകൾ ഒഴിവാക്കാൻ (ആവശ്യമെങ്കിൽ മാത്രം) */
 }
-
-
-.small-heading {
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-}
-
 
 .names {
 
@@ -545,7 +451,7 @@ h3 {
 
     position: absolute;
 
-    bottom: 25px;
+    bottom: 16px;
 
     left: 50%;
 
@@ -559,39 +465,38 @@ h3 {
     text-transform: uppercase;
 }
 
-
 .cover-video-container {
-
-    position: relative;
-
-    width:
-        min(90%, 380px);
-
-    aspect-ratio: 9/16;
-
-    margin: auto;
-
-    z-index: 1;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.25);
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    background: #eef2f1 !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
-
 
 .cover-video {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important; /* വീഡിയോയുടെ വശങ്ങൾ കട്ടായി പോകാതെ ഫുൾ ആയി ഫിറ്റ് ചെയ്യാൻ ('cover' വേണമെങ്കിൽ മാറ്റാം) */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    display: block !important;
 }
-
 
 /* =========================================================
    STARS
@@ -628,111 +533,73 @@ h3 {
 
 }
 
-
 /* =========================================================
-   02 INVITATION
+   02 INVITATION — FULL SCREEN RESPONSIVE VIDEO
 ========================================================= */
 
 #invitation {
-
-    background-color:
-        #c9a5a8 !important;
-
-    background-image:
-        none !important;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 80px 15px;
-
+    position: relative;
+    width: 100%;
     min-height: 100vh;
-
+    min-height: 100svh; /* മൊബൈൽ ബ്രൗസർ ബാറുകൾ കറക്റ്റ് ആയി ഫിറ്റ് ചെയ്യാൻ */
+    background-color: #c9a5a8 !important;
+    background-image: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
     box-sizing: border-box;
+    overflow: hidden;
 }
-
 
 #invitation .section-inner {
-
+    position: absolute;
+    inset: 0;
     width: 100%;
-
+    height: 100%;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     background: transparent !important;
-
     box-shadow: none !important;
-
     border: none !important;
+    padding: 0 !important;
 }
-
 
 .invitation-card {
-
-    background:
-        transparent !important;
-
-    border:
-        none !important;
-
-    box-shadow:
-        none !important;
-
-    padding:
-        0 !important;
-
-    max-width: 420px;
-
+    position: absolute;
+    inset: 0;
     width: 100%;
-
-    position: relative;
-
+    height: 100%;
+    max-width: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
 }
-
 
 .invitation-card::before,
 .invitation-card::after {
-
     display: none !important;
 }
 
-
 .invitation-card video {
-
+    position: absolute;
+    inset: 0;
     width: 100%;
-
-    height: auto;
-
-    max-height: 80vh;
-
-    object-fit: contain;
-
-    border-radius: 12px;
-
-    background:
-        transparent !important;
-
-    box-shadow:
-        none !important;
-
-    border:
-        none !important;
+    height: 100%;
+    max-height: none !important;
+    object-fit: contain; /* മൊബൈലിലും ലാപ്ടോപ്പിലും വീഡിയോ മുറിഞ്ഞുപോകാതെ ഫുൾ ആയി ഫിറ്റ് ചെയ്യാൻ */
+    border-radius: 0 !important;
+    background: #c9a5a8 !important; /* വീഡിയോയ്ക്ക് ചുറ്റും വരുന്ന ബാക്ക്ഗ്രൗണ്ട് തീം കളർ */
+    box-shadow: none !important;
+    border: none !important;
+    display: block;
 }
-
-
 /* =========================================================
    03 OUR STORY
 ========================================================= */
@@ -2135,7 +2002,7 @@ h3 {
         >
 
             <source
-                src="inv-video1.mp4"
+                src="inv-video4.MP4"
                 type="video/mp4"
             >
 

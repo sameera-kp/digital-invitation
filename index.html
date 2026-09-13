@@ -448,21 +448,16 @@ h3 {
 
 
 .scroll {
-
-    position: absolute;
-
-    bottom: 16px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
+    position: absolute !important;
+    bottom: 20px !important; /* മൊബൈൽ സ്ക്രീനിൽ അടിയിൽ നിന്നും കുറച്ച് മുകളിലേക്ക് മാറ്റി നിർത്താൻ */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 9px !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    z-index: 10 !important; /* വീഡിയോയ്ക്ക് മുകളിൽ വ്യക്തമായി കാണാൻ ഉയർന്ന z-index */
+    color: var(--deep-blue, #333) !important;
+    pointer-events: none !important;
 }
 
 .cover-video-container {
@@ -532,34 +527,33 @@ h3 {
     }
 
 }
-
 /* =========================================================
-   02 INVITATION — FULL SCREEN RESPONSIVE VIDEO
+   02 INVITATION — MATCHING COVER WIDTH & STYLE
 ========================================================= */
 
 #invitation {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100svh; /* മൊബൈൽ ബ്രൗസർ ബാറുകൾ കറക്റ്റ് ആയി ഫിറ്റ് ചെയ്യാൻ */
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
     background-color: #c9a5a8 !important;
     background-image: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 !important;
-    box-sizing: border-box;
-    overflow: hidden;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px 0 !important; /* മുകളിലും താഴെയും ചെറിയ പാഡിങ് നൽകി ഒരേ ലെവലിൽ നിർത്താൻ */
+    box-sizing: border-box !important;
+    overflow: hidden !important;
 }
 
 #invitation .section-inner {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
@@ -567,19 +561,21 @@ h3 {
 }
 
 .invitation-card {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none !important;
+    position: relative !important;
+    inset: auto !important;
+    width: min(90%, 380px) !important; /* കവർ വീഡിയോയുടെ അതേ വിഡ്ത് ഇവിടെയും നൽകിയിരിക്കുന്നു */
+    aspect-ratio: 9/16 !important; /* കവർ വീഡിയോയുടെ അതേ പ്രൊപ്പോർഷൻ */
+    max-width: 380px !important;
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25) !important; /* കവർ വീഡിയോയുടെ അതേ ഷാഡോ */
+    border-radius: 20px !important; /* കവർ വീഡിയോയുടെ അതേ ബോർഡർ റേഡിയസ് */
+    overflow: hidden !important;
     padding: 0 !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .invitation-card::before,
@@ -588,17 +584,18 @@ h3 {
 }
 
 .invitation-card video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-height: none !important;
-    object-fit: contain; /* മൊബൈലിലും ലാപ്ടോപ്പിലും വീഡിയോ മുറിഞ്ഞുപോകാതെ ഫുൾ ആയി ഫിറ്റ് ചെയ്യാൻ */
-    border-radius: 0 !important;
-    background: #c9a5a8 !important; /* വീഡിയോയ്ക്ക് ചുറ്റും വരുന്ന ബാക്ക്ഗ്രൗണ്ട് തീം കളർ */
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important; /* ഒരേപോലെയുള്ള ബോക്സിൽ ഫിറ്റ് ചെയ്യാൻ കവർ/കണ്ടെയ്ൻ മാറ്റാം */
+    border-radius: 20px !important;
+    background: #c9a5a8 !important;
     box-shadow: none !important;
     border: none !important;
-    display: block;
+    display: block !important;
 }
 /* =========================================================
    03 OUR STORY
